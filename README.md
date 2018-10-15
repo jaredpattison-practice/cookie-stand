@@ -1,2 +1,2 @@
 # salmon-cookies
-201d40-lab-6
+My "Salmon Cookies" project for 201d40-lab-6
