@@ -33,3 +33,27 @@ pike.render = function() {
 		pikeUl.appendChild(liEl);
 	}
 }
+
+var seatac = {
+  location: 'SeaTac Airport',
+	minCustomer: 3,
+	maxCustomer: 24,
+	avgCookiesPerSale: 1.2,
+	hourlyTotals: function() {
+		var newArray = [];
+		for(var i=0; i < hours.length; i++){
+			newArray.push(Math.round((getRandomIntInclusive(this.minCustomer, this.maxCustomer) )*(this.avgCookiesPerSale)))
+		}
+		return newArray;
+	}
+};
+
+seatac.render = function() {
+	var seatacUl = document.getElementById('seatacstore');
+	for (var i = 0; i < hours.length; i++){
+		var liEl = document.createElement('li');
+		liEl.textContent = `${hours[i]}: ${this.hourlyTotals()[i]} cookies`
+		console.log(liEl, 'liEl')
+		seatacUl.appendChild(liEl);
+	}
+}
