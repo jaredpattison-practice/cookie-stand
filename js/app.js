@@ -29,7 +29,6 @@ pike.render = function() {
 	for (var i = 0; i < hours.length; i++){
 		var liEl = document.createElement('li');
 		liEl.textContent = `${hours[i]}: ${this.hourlyTotals()[i]} cookies`
-		console.log(liEl, 'liEl')
 		pikeUl.appendChild(liEl);
 	}
 }
@@ -53,7 +52,33 @@ seatac.render = function() {
 	for (var i = 0; i < hours.length; i++){
 		var liEl = document.createElement('li');
 		liEl.textContent = `${hours[i]}: ${this.hourlyTotals()[i]} cookies`
-		console.log(liEl, 'liEl')
 		seatacUl.appendChild(liEl);
 	}
 }
+
+var seattle = {
+  location: 'Seattle Center',
+	minCustomer: 11,
+	maxCustomer: 38,
+	avgCookiesPerSale: 3.7,
+	hourlyTotals: function() {
+		var newArray = [];
+		for(var i=0; i < hours.length; i++){
+			newArray.push(Math.round((getRandomIntInclusive(this.minCustomer, this.maxCustomer) )*(this.avgCookiesPerSale)))
+		}
+		return newArray;
+	}
+};
+
+seattle.render = function() {
+	var seattleUl = document.getElementById('seattlestore');
+	for (var i = 0; i < hours.length; i++){
+		var liEl = document.createElement('li');
+		liEl.textContent = `${hours[i]}: ${this.hourlyTotals()[i]} cookies`
+		seattleUl.appendChild(liEl);
+	}
+}
+
+pike.render();
+seatac.render();
+seattle.render();
