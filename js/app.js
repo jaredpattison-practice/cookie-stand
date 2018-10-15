@@ -79,6 +79,30 @@ seattle.render = function() {
 	}
 }
 
+var capitol = {
+  location: 'Capitol Hill',
+	minCustomer: 20,
+	maxCustomer: 38,
+	avgCookiesPerSale: 2.3,
+	hourlyTotals: function() {
+		var newArray = [];
+		for(var i=0; i < hours.length; i++){
+			newArray.push(Math.round((getRandomIntInclusive(this.minCustomer, this.maxCustomer) )*(this.avgCookiesPerSale)))
+		}
+		return newArray;
+	}
+};
+
+capitol.render = function() {
+	var capitolUl = document.getElementById('capitolstore');
+	for (var i = 0; i < hours.length; i++){
+		var liEl = document.createElement('li');
+		liEl.textContent = `${hours[i]}: ${this.hourlyTotals()[i]} cookies`
+		capitolUl.appendChild(liEl);
+	}
+}
+
 pike.render();
 seatac.render();
 seattle.render();
+capitol.render();
