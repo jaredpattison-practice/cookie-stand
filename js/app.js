@@ -102,7 +102,31 @@ capitol.render = function() {
 	}
 }
 
+var alki = {
+  location: 'Alki',
+	minCustomer: 2,
+	maxCustomer: 16,
+	avgCookiesPerSale: 4.6,
+	hourlyTotals: function() {
+		var newArray = [];
+		for(var i=0; i < hours.length; i++){
+			newArray.push(Math.round((getRandomIntInclusive(this.minCustomer, this.maxCustomer) )*(this.avgCookiesPerSale)))
+		}
+		return newArray;
+	}
+};
+
+alki.render = function() {
+	var alkiUl = document.getElementById('alkistore');
+	for (var i = 0; i < hours.length; i++){
+		var liEl = document.createElement('li');
+		liEl.textContent = `${hours[i]}: ${this.hourlyTotals()[i]} cookies`
+		alkiUl.appendChild(liEl);
+	}
+}
+
 pike.render();
 seatac.render();
 seattle.render();
 capitol.render();
+alki.render();
