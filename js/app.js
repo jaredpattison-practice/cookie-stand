@@ -17,7 +17,13 @@ var hours = [
   '7pm'
 ];
 
+var salesTable = document.getElementById('sales');
+var updateForm = document.getElementById('update-form');
 //var totalDailyCookies = [];
+
+var random = function(max, min) {
+	return Math.floor(Math.random() * (max - min) + min);
+}
 
 function Store(
   minCustomersPerHour,
@@ -37,10 +43,7 @@ function Store(
 
 Store.prototype.calcCustomersEachHour = function() {
   for (var i = 0; i < hours.length; i++) {
-    var randomCustomers =
-      Math.floor(
-        Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour)
-      ) + this.minCustomersPerHour;
+    var randomCustomers = random(this.maxCustomersPerHour, this.minCustomersPerHour);
     this.customersEachHour.push(randomCustomers);
   }
 };
@@ -56,7 +59,7 @@ Store.prototype.calcCookiesEachHour = function() {
   }
 };
 
-var salesTable = document.getElementById('sales');
+
 
 Store.prototype.render = function() {
   this.calcCookiesEachHour();
@@ -75,13 +78,21 @@ Store.prototype.render = function() {
   //console.table(this.cookiesEachHour);
 };
 
+/* function newElement(type, content, parent) {
+	var element = document.createElement(type);
+	element.textContent = content;
+	parent.appendChild(element)
+} */
+
 var makeHeaderRow = function() {
+  // newElement('th', '', 'tr')
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = '';
   trEl.appendChild(thEl);
   for (var i = 0; i < hours.length; i++) {
-    thEl = document.createElement('th');
+    var trEl;
+    var thEl = document.createElement('th');
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
   }
