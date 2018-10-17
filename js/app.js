@@ -18,7 +18,7 @@ var hours = [
 ];
 
 var salesTable = document.getElementById('sales');
-// var updateForm = document.getElementById('update-form');
+var updateForm = document.getElementById('update-form');
 var allStores = [];
 //var totalDailyCookies = [];
 
@@ -31,13 +31,13 @@ function Store(
   maxCustomersPerHour,
   avgCookiesPerCustomer,
   locationName,
-  Id
+  // Id
 ) {
   this.minCustomersPerHour = minCustomersPerHour;
   this.maxCustomersPerHour = maxCustomersPerHour;
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
   this.locationName = locationName;
-  this.Id = Id;
+  // this.Id = Id;
   this.customersEachHour = [];
   this.cookiesEachHour = [];
   allStores.push(this);
@@ -121,33 +121,28 @@ var makeHeaderRow = function() {
 	salesTable.appendChild(trEl);
 	console.log(totalDailyCookies)
 } */
-/* function handleUpdateSubmit(event) {
+function handleUpdateSubmit(event) {
+  event.preventDefault();
   // console.log('log of the event object', event);
   // console.log('log of the event.target', event.target);
   // console.log('log of the event.target.minCustomer', event.target.minCustomer);
-  console.log(event.target.location.value);
+  console.log(event.target.avgCookiesCustomer.value);
   var location = event.target.location.value;
-  var min = event.target.minCustomer;
-  var max = event.target.maxCustomer;
-  var avgCookiesPerCustomer = event.target.avgCookiesPerCustomer.value;
-  var Id = (event.target.location.value).toLowerCase().replace(/\s+/g, '');
-  new Store(min, max, avgCookiesPerCustomer, location, ID);
-} */
+  var min = event.target.minCustomer.value;
+  var max = event.target.maxCustomer.value;
+  var avg = event.target.avgCookiesCustomer.value;
+  // var Id = (event.target.location.value).toLowerCase().replace(/\s+/g, '');
+  new Store(min, max, avg, location);
+  populateTable();
+}
 
-// updateForm.addEventListener('submit', handleUpdateSubmit);
+updateForm.addEventListener('submit', handleUpdateSubmit);
 
-/* 
-var pike = new Store(23, 65, 6.3, '1st and Pike', 'pikestore');
-var seatac = new Store(3, 24, 1.2, 'SeaTac Airport', 'seatacstore');
-var seattle = new Store(11, 38, 3.7, 'Seattle Center', 'seattlestore');
-var capitol = new Store(20, 38, 2.3, 'Capitol Hill', 'capitolstore');
-var alki = new Store(2, 16, 4.6, 'Alki', 'alkistore'); */
-
-new Store(23, 65, 6.3, '1st and Pike', 'pikestore');
-new Store(3, 24, 1.2, 'SeaTac Airport', 'seatacstore');
-new Store(11, 38, 3.7, 'Seattle Center', 'seattlestore');
-new Store(20, 38, 2.3, 'Capitol Hill', 'capitolstore');
-new Store(2, 16, 4.6, 'Alki', 'alkistore');
+new Store(23, 65, 6.3, '1st and Pike');
+new Store(3, 24, 1.2, 'SeaTac Airport');
+new Store(11, 38, 3.7, 'Seattle Center');
+new Store(20, 38, 2.3, 'Capitol Hill');
+new Store(2, 16, 4.6, 'Alki');
 
 function populateTable() {
   for (var i = 0; i < allStores.length; i++) {
