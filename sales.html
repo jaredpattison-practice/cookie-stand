@@ -12,9 +12,18 @@
 	<form id="update-form">
 		<fieldset>
       <legend>Update table form</legend>
+
+      <label for="location">Location:</label>
+      <input name="location" type="text" size="20" required/>
       
-      <label for="Minimum Customers Per Hour">Minumum Customers Per Hour:</label>
-      <input name="Minimum Customer Per Hour" type="number" size="3" required/>
+      <label for="minCustomer">Minumum Customers Per Hour:</label>
+      <input name="minCustomer" type="number" size="4" required/>
+
+      <label for="maxCustomer">Maximumm Customers Per Hour:</label>
+      <input name="maxCustomer" type="number" size="4" required/>
+
+      <label for="avgCookiesCustomer">Average Cookies Per Customer:</label>
+      <input name="avgCookiesCustomer" type="number" size="4" required/>
 
       <button type="submit">Update table</button>
     </fieldset>
