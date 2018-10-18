@@ -111,23 +111,23 @@ var makeHeaderRow = function() {
   salesTable.appendChild(trEl);
 };
 
-// var makeFooterRow = function() {
-// 	var trEl = document.createElement('tr');
-// 	var thEl = document.createElement('th');
-// 	thEl.textContent = 'Total';
-// 	trEl.appendChild(thEl);
+var makeFooterRow = function() {
+	var trEl = document.createElement('tr');
+	var thEl = document.createElement('th');
+	thEl.textContent = 'Total';
+	trEl.appendChild(thEl);
 
-// 	for(var i = 0; i < hours.length; i++) {
-// 		thEl = document.createElement('th');
-// 		thEl.textContent = totalDailyCookies[i];
-// 		trEl.appendChild(thEl);
-//   }
-//  	var thEl = document.createElement('th');
-// 	thEl.textContent = allTally;
-// 	trEl.appendChild(thEl);
-// 	salesTable.appendChild(trEl);
-	// console.log(totalDailyCookies)
-// }
+	for(var i = 0; i < hours.length; i++) {
+		thEl = document.createElement('th');
+		thEl.textContent = totalDailyCookies[i];
+		trEl.appendChild(thEl);
+  }
+ 	var thEl = document.createElement('th');
+	thEl.textContent = allTally;
+	trEl.appendChild(thEl);
+	salesTable.appendChild(trEl);
+	console.log(totalDailyCookies)
+}
 function handleUpdateSubmit(event) {
   event.preventDefault();
   // console.log('log of the event object', event);
@@ -141,7 +141,9 @@ function handleUpdateSubmit(event) {
   // var Id = (event.target.location.value).toLowerCase().replace(/\s+/g, '');
   new Store(min, max, avg, location);
   console.log(allStores);
-  allStores[allStores.length -1].render();
+  // allStores[allStores.length -1].render();
+  document.getElementById('sales').innerHTML='';
+  populateTable();
 }
 
 updateForm.addEventListener('submit', handleUpdateSubmit);
@@ -153,10 +155,11 @@ new Store(20, 38, 2.3, 'Capitol Hill');
 new Store(2, 16, 4.6, 'Alki');
 
 function populateTable() {
+  makeHeaderRow();
   for (var i = 0; i < allStores.length; i++) {
     allStores[i].render();
   }
-  // makeFooterRow();
+  makeFooterRow();
 }
 
 makeHeaderRow();
