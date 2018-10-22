@@ -112,7 +112,7 @@ function render() {
   }
   makeNewElement('th', calcTotalDailyCookiesAll(), trEl);
   salesTable.appendChild(trEl);
-};
+}
 
 function handleUpdateSubmit(event) {
   event.preventDefault();
@@ -121,8 +121,13 @@ function handleUpdateSubmit(event) {
   var max = Number(event.target.maxCustomer.value);
   var avg = Number(event.target.avgCookiesCustomer.value);
   new Store(min, max, avg, location);
-  document.getElementById('sales').innerHTML='';
-  render();
+
+  if(isNaN(avg)) {
+    return alert('Please enter a number');
+  } else {
+    document.getElementById('sales').innerHTML='';
+    render();
+  }
 }
 
 updateForm.addEventListener('submit', handleUpdateSubmit);

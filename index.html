@@ -2,26 +2,41 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
   <title>Salmon Index</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
-  <h1><a href="sales.html">Sales Table</a></h1>
-  <img id="chinook" src="img/chinook.jpg" alt="A salmon" title="Do I look fishy to you?" />
+  <header>
+    <h3>Hand Mashed</h3>
+    <div>
+      <img id="fish" src="img/fish.jpg" alt="Four fake fish" title="fish-logo" height="120px" width="180"/>
+      <h2>Salmon Masher</h2>
+    </div>
+    <h3>Freshly Baked</h3>
+  </header>
 
-  <img id="cutter" src="img/cutter.jpg" alt="Fish shaped cookie cutter" title="I cut cookie fish" />
+  <main>
+    <img id="salmon" src="img/chinook.jpg" alt="A salmon" title="Click here to see what else we offer!" onclick="changeImage()" width="480px" height="180px"/>
+      <h3>Winter Delights</h3>
+      <p>Experience the all flavours that the Noble Salmon has too offer this Winter. Here at The Salmon Masher we take a wholistic approach to making our Salmon cookies, that is to say, we mash the whole salmon.</p>
+      <h3>Great for you and the Environment</h3>
+      <p>Your average bakerly often leaves out the healthiest bits of the salmon, wasting high protien areas like the head, or flavour adding sclales, but not at The Salmon Masher</p>
+      <section>
+        <h4>Hand Cut</h4>
+        <h4>Hand Decorated</h4>
+        <h4>Hand Munched</h4>
+        <h4>Salmon Swag</h4>
+        <img id="cutter" src="img/cutter.jpg" alt="Fish shaped cookie cutter" title="I cut cookie fish" width="240px"/>
 
-  <img id="family" src="img/family.jpg" width ="300px" alt="Fake happy family" title="We are happy!" />
+        <img id="frosted-cookie" src="img/frosted-cookie.jpg" alt="Cookie shaped like a salmon" title="Cookie salmon" width="240px"/>
 
-  <img id="fish" src="img/fish.jpg" alt="Four fake fish" title="We are salmon" />
+        <img id="family" src="img/family.jpg" alt="Fake happy family" title="We are happy!" width="240px"/>
 
-  <img id="frosted-cookie" src="img/frosted-cookie.jpg" alt="Cookie shaped like a salmon" title="Cookie salmon" />
-
-  <img id="salmon" src="img/salmon.png" alt="A salmon" title="Another salmon" />
-
-  <img id="shirt" src="img/shirt.jpg" alt="Man with salmon picture on shirt" title="I have a salmon shirt!" />
+        <img id="shirt" src="img/shirt.jpg" alt="Man with salmon picture on shirt" title="I have a salmon shirt!" width="240px"/>
+      </section>
+  <script src="js/controlimg.js"></script>
 </body>
 
 </html>
