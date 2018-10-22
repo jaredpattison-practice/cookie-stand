@@ -1,23 +1,81 @@
-* {
-    font-family: 'Baloo', cursive;
+body {
+  font-family: 'BiondiBook', sans-serif;
+  width: 1000px;
+  margin: 0px auto;
   }
-  
-  body {
-    background: #ccc;
-  }
-  
+/* HEADER */
+
+header {
+  height: 160px;
+  margin: 20px;
+  border-bottom: solid #311007;
+}
+
+header h2 {
+  color: #311007;
+  font-size: 40px;
+}
+
+header h3 {
+  font: 35px 'BiondiRegular', sans-serif;
+  float: left;
+  margin-top: 80px;
+  color: #6f5d53;
+}
+
+header div {
+  float: left;
+  margin-left: 110px;
+  margin-right: 110px;
+}
+/* MAIN */
+
+main {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-bottom: solid #311007;
+}
+main img {
+  float: left;
+  margin-right: 10px;
+} 
+
+main h3 {
+  font-size: 20px;
+  margin: 10px;
+  color: #6f5d53;
+}
+
+main p {
+  line-height: 20px;
+}
+
+section {
+  margin-top: 80px;
+}
+
+section h4{
+  float: left;
+  margin: 40px 32px;
+  font-size: 30px;
+  color:#6f5d53;
+}
+
+  /* Table  */
   table {
-    border: 4px solid black;
+    border-radius: 5px;
+    border: 2px solid #311007;
   }
   
   td {
     padding: 10px;
-    border-radius: 15px;
-    border: 1px solid black;
-    background: white;
+    border-radius: 3px;
+    border: 1px solid #311007;
+    background: #dedede;
   }
   
   th {
-    background-color: navy;
-    color: white;
+    background-color: #5f5d53;
+    color: #dedede;
+    border-radius: 3px;
   }
