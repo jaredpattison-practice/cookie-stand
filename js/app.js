@@ -120,11 +120,11 @@ function handleUpdateSubmit(event) {
   var min = Number(event.target.minCustomer.value);
   var max = Number(event.target.maxCustomer.value);
   var avg = Number(event.target.avgCookiesCustomer.value);
-  new Store(min, max, avg, location);
 
   if(isNaN(avg)) {
     return alert('Please enter a number');
   } else {
+    new Store(min, max, avg, location);
     document.getElementById('sales').innerHTML='';
     render();
   }
